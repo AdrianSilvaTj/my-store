@@ -1,0 +1,94 @@
+<h1>Class & Style</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
+<!-- [class.invalid], activa una clase dinamicamente si se cumple una condición -->
+<p class="message-error" [class.invalid]="nameInput2.invalid">El campo es requerido</p>
+<label>Nombre</label>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">El Texto que cambiara de fuente</p>
+
+<h1>ngSwitch</h1>
+<input type="text" required [(ngModel)]="person.name" />
+<div [ngSwitch]="person.name">
+  <p *ngSwitchCase="'nicolas'">
+    La persona es Nicolas
+  </p>
+  <p *ngSwitchCase="'julian'">
+    La persona es Julian
+  </p>
+  <p *ngSwitchCase="'camilo'">
+    La persona es Camilo1
+  </p>
+  <p *ngSwitchDefault>No hace match</p>
+</div>
+
+<h1>*ngFor Objs</h1>
+<div class="products--grid">
+  <div *ngFor="let product of products">
+    <img [src]="product.image" [alt]="product.name">
+    <h2>{{product.name}}</h2>
+    <p>{{product.name}}</p>
+  </div>
+</div>
+
+<hr>
+<h1>*ngFor</h1>
+<input type="text" required [(ngModel)]="newName" />
+<button (click)="addName()">Add name</button>
+<ul>
+  <li *ngIf="names.length === 0">No hay nombres</li>
+  <li *ngFor="let nam of names; index as i" >
+    {{i}} {{nam}}
+    <button (click)="deleteName(i)">Delete</button>
+  </li>
+</ul>
+
+<h1>*ngIf</h1>
+<input type="text" required [(ngModel)]="person.name" />
+<p *ngIf="person.name === 'nicolas'">Soy Nicolas</p>
+<p *ngIf="person.name === 'julian' && person.age === 18; else elseBlock">Soy Julian</p>
+<ng-template #elseBlock>
+  <p>Bloque else</p>
+</ng-template>
+
+
+<h1>NgModel</h1>
+<!-- #nameInput="ngModel", asigna un nombre al input como "name" -->
+<!-- "required", validacion añadida al input -->
+<p>Nombre {{person.name}}</p>
+<input type="text" #nameInput="ngModel" required [(ngModel)]="person.name" />
+<p>Valid: {{nameInput.valid}}</p>
+<p>Edad {{person.age}}</p>
+<input type="number" #ageInput="ngModel" required max="18" min="10" [(ngModel)]="person.age" />
+<p>Valid Age: {{ageInput.valid}}</p>
+
+<hr>
+<h1>Eventos</h1>
+<button (click)="toggleButton()">Toggle Button</button>
+<p>Edad {{ person.age }}</p>
+<button (click)="increaseAge()">Age ++</button>
+<div class="box" (scroll)="onScroll($event)" >
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus alias
+    labore quia perferendis blanditiis, nihil beatae quaerat eius? Saepe eius
+    enim ad. Quam ullam harum aspernatur accusamus quisquam soluta atque.
+  </p>
+</div>
+<input type="text" [value]="person.name" (keyup)="changeName($event)">
+<p>Nombre {{person.name}}</p>
+
+<hr />
+
+<h1>Propiedades</h1>
+<hr />
+<button [disabled]="btnDisabled">Boton Prueba</button>
+<input type="text" [value]="name" />
+<input type="text" [value]="person.name" />
+<progress max="100" [value]="age"></progress>
+<progress max="100" [value]="person.age"></progress>
+<img [src]="img" width="100" />
+<img [src]="person.avatar" width="100" />
+
+<hr />
+<h1>Hola Mundo</h1>
+<h2>{{ "Hola Mundo".repeat(5) }}</h2>
+<h4>Hola, soy {{ name }} y tengo {{ age }} años</h4>
