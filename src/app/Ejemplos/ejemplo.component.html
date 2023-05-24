@@ -1,0 +1,23 @@
+<form #registerForm="ngForm" (ngSubmit)="onRegister()">
+  <div class="container">
+    <div class="input-group">
+      <p class="form-label-p"><label for="name">Nombre</label></p>
+      <input type="text" required id="name" name="name" #name="ngModel" (keyup)="nonError($event)" [(ngModel)]="register.name" />
+      <p class="message-error"  [class.invalid]="error.name">{{error.name}}</p>
+    </div>
+    <div class="input-group">
+      <p class="form-label-p"><label for="email">Email</label></p>
+      <input type="email" required id="email" name="email" #email="ngModel" [(ngModel)]="register.email" />
+      <p class="message-error" [class.invalid]="email.invalid">Email inválido</p>
+    </div>
+    <div class="input-group">
+      <p class="form-label-p"><label for="password">Password</label></p>
+      <input type="password" required id="password" name="password" #password="ngModel" [(ngModel)]="register.password" />
+      <p class="message-error" [class.invalid]="password.invalid">El Password no debe ser vacío</p>
+    </div>
+    <button type="submit">Registrar</button>
+    <button type="button">Accion</button>
+
+  </div>
+
+</form>

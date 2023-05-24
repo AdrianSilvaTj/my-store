@@ -14,7 +14,7 @@ export class AppComponent {
   person = {
     name: 'Eduardo',
     age: 18,
-    avatar: "https://unsplash.com/es/fotos/c_GmwfHBDzk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
+    avatar: ""
   };
   names: string[] = ['Julia', 'Sandra', 'Natalie', 'Carlos'];
   newName = "";
@@ -34,7 +34,19 @@ export class AppComponent {
     price: 300,
     image: './assets/images/celular.jpg',
     }
-  ]
+  ];
+  widthImg = 100;
+  box = {
+    width : 100,
+    height: 100,
+    background: 'yellow',
+  };
+  register = {
+    name: '',
+    email: '',
+    password: '',
+  }
+
 
   toggleButton(){
     this.btnDisabled = !this.btnDisabled
@@ -62,5 +74,9 @@ export class AppComponent {
 
   deleteName(index: number){
     this.names.splice(index, 1);
+  }
+
+  onRegister(){
+    console.log(this.register);
   }
 }

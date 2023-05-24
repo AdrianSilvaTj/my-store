@@ -1,0 +1,31 @@
+.container{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: baseline;
+  align-content: center;
+}
+
+.form-label-p{
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+input {
+  width: 350px;
+  height: 20px
+}
+
+
+
+.message-error{
+  background: rgb(230, 210, 210);
+  color: rgb(252, 0, 0);
+  opacity: 0;
+  transition: all linear .5s;
+
+  &.invalid{
+    opacity: 1;
+  }
+}
